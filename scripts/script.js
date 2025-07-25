@@ -4,6 +4,8 @@ const lastNameInput = document.querySelector("#last-name-input");
 
 // create reference for buttons.
 const submitBtn = document.querySelector("#submit-btn");
+const resetBtn = document.querySelector("#reset-btn");
+
 
 // simple email validation
 function validateEmail(email) {
@@ -45,3 +47,15 @@ submitBtn.onclick = () => {
 };
 
 // add callback function for Reset button.
+resetBtn.onclick = () => {
+  document.querySelector("#register-form").reset();
+  
+  document.querySelectorAll("input").forEach((input) => {
+    input.value = "";
+    input.classList.remove("is-valid", "is-invalid");
+  });
+
+  document.querySelectorAll(".invalid-feedback").forEach((el) => {
+    el.style.display = "none";
+  });
+};
